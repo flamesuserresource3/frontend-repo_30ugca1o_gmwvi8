@@ -1,28 +1,41 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import Experience from './components/Experience';
+import Contact from './components/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+    <div className="min-h-screen w-full bg-slate-950 text-white">
+      {/* Simple top nav */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+          <a href="#" className="text-sm font-semibold tracking-tight">
+            <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-indigo-400 bg-clip-text text-transparent">AR</span>
+            <span className="ml-2 hidden text-white/70 sm:inline">Project Manager</span>
+          </a>
+          <nav className="hidden gap-6 text-sm text-white/80 sm:flex">
+            <a className="hover:text-white" href="#about">About</a>
+            <a className="hover:text-white" href="#experience">Experience</a>
+            <a className="hover:text-white" href="#contact">Contact</a>
+          </nav>
+          <a
+            href="#contact"
+            className="rounded-lg bg-sky-500 px-3 py-1.5 text-xs font-medium text-white shadow shadow-sky-500/30 transition hover:bg-sky-400"
           >
-            Count is {count}
-          </button>
+            Let’s talk
+          </a>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Contact />
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
